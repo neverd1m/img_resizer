@@ -4,8 +4,8 @@
 ### Для создания нового виртуального окружения выполните:
 
 `git clone git@github.com:neverd1m/image_resizer.git`  
-`cd image_resizer/`
-`virtualenv someproject_env` 
+`cd image_resizer/`  
+`virtualenv someproject_env`  
 `source someproject_env/bin/activate`  
 `pip3 install requirements.txt`
 
