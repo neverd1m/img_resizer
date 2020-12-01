@@ -13,7 +13,8 @@
     {% comment %} {{ resized_image }} {% endcomment %}
     <input type="submit" value="Дай новый размер">
 </form>
-{% if show_image %}
+{% if show_image and not sizes_form.errors and not sizes_form.non_field_errors %}
 <p><img src="{{ instance.resized_image.url }}" alt=" Твоя картинка"></p>
+{% else %}
 {% endif %}
 {% endblock content %}

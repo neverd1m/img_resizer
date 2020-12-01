@@ -17,14 +17,18 @@ def image_detail(request, pk):
     show_image = False
     # так как второе изображение я все равно сохраняю,
     # то буду показывать результат только после отправки формы
-    resized_image = None
     instance = UserFile.objects.get(pk=pk)
 
     if request.method == "POST":
         show_image = True
         sizes_form = NewSizeForm(request.POST)
+        print(sizes_form.is_valid())
         if sizes_form.is_valid():
             cd = sizes_form.cleaned_data
+            if not cd.get('width'):
+                cd['width'] = cd['height']
+            elif not cd.get('height'):
+                cd['height'] = cd['width']
             instance.resize(cd['width'], cd['height'])
             # image_field = instance.resized_image
             # img_name = instance.name + "_resized.png"
@@ -37,8 +41,7 @@ def image_detail(request, pk):
         sizes_form = NewSizeForm()
 
     return render(request, 'main_app/image_detail.html',
-                  {'sizes_form': sizes_form, 'resized_image': resized_image,
-                   'instance': instance, "show_image": show_image})
+                  {'sizes_form': sizes_form, 'instance': instance, "show_image": show_image})
 
 
 def upload(request):

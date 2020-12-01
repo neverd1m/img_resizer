@@ -3,12 +3,10 @@
 ## Установка ##
 ### Для создания нового виртуального окружения выполните:
 
-`cd` # будет выполнен переход в домашнюю директорию  
-`mkdir some_project`  
-`cd ~/home/username/someproject`  
-`python3 virtualenv someproject_env`  
-`git clone git@github.com:neverd1m/ImageResizer.git`  
-`source activate someproject_env/bin/activate`  
+`git clone git@github.com:neverd1m/image_resizer.git`  
+`cd image_resizer/`
+`virtualenv someproject_env` 
+`source someproject_env/bin/activate`  
 `pip3 install requirements.txt`
 
 ### Для запуска проекта следует перейти в каталог ida_test и выполнить запуск:

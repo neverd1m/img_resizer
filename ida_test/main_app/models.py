@@ -18,7 +18,7 @@ class UserFile(models.Model):
 
     # результат обрезки буду сохранять в одно из полей модели
     resized_image = models.ImageField(
-        verbose_name='Последнее изменение', blank=True, upload_to='resized_imgs')
+        verbose_name='Последнее изменение', blank=True, upload_to='resized_imgs', null=True)
 
     def get_absolute_url(self):
         return reverse("image_detail", kwargs={"pk": self.pk})
