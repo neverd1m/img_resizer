@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Загрузить изображение
+
+{% endblock title %}
+
+{% block content %}
+
+
+<h1>Новое изображение</h1>
+<form action="{% url 'upload' %}" method="post" enctype="multipart/form-data">
+    <p>{{ upload_form.url_variable.label }}</p>
+    {{ upload_form.url_variable }}
+    {% comment %} {{ upload_form.as_p }} {% endcomment %}
+    <p>{{ upload_form.image.label }}</p>
+    {{ upload_form.image }}
+    {% csrf_token %}
+    <p><input type="submit" value="Отправить"></p>
+</form>
+
+{% endblock content %}
